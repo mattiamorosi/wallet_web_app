@@ -30,9 +30,14 @@ const VerifyCred = ({alias, setCredential, credential}) => {
             <div className='main_div'>
                 <h1>Verifiable credential to verify</h1>
                 <h3>{JSON.stringify(credential)}</h3>
-                {!(result==='') && <p>{JSON.stringify(result)}</p>}
-                <h2>Click the bottom below to start the verification process.</h2>
-                <button onClick={verify} className="verify_button">Verify your VC</button>            
+                {!(result==='') ? (
+                     <h2>{JSON.stringify(result).slice(1, -1)}</h2>
+                ):(
+                    <>
+                        <h2>Click the bottom below to start the verification process.</h2>
+                        <button onClick={verify} className="verify_button">Verify your VC</button>
+                    </>
+                )}            
             </div>
         </React.Fragment>
 

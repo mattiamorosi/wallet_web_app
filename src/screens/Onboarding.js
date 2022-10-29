@@ -74,7 +74,7 @@ const Onboarding = ({setPrevScreen, userInfo, setAlias}) => {
         : verifying? (
             <div className= "viewStyle">
                 <h1>The Identity Provider is creating your DID...</h1>
-                <h5>Some seconds are needed to perform the PoW, after that time if your alias has not been used a DID will be assigned to you!</h5>
+                <h3>Some seconds are needed to perform the PoW, after that time if your alias has not been used a DID will be assigned to you!</h3>
             </div>
         ):(
             <div className= "viewStyle">
