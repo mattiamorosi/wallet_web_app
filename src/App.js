@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import Onboarding from './screens/Onboarding';
+import GetCred from './screens/GetCred';
+import VerifyCred from './screens/VerifyCred';
 
-function App() {
+const App = () => {
+  const [alias, setAlias] = useState();
+  const [credential, setCredential] = useState('');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <React.Fragment>
+        <BrowserRouter>
+          <>
+            <Routes>
+              <Route
+                  path="/"
+                  element={
+                    <Onboarding setAlias={setAlias} />
+                  }
+              />
+            
+              <Route
+                  path="/getCred"
+                  element={
+                    <>
+                      <GetCred alias={alias} setCredential={setCredential} credential={credential}/>
+                    </>
+                  }
+              />
+              <Route
+                  path="/verifyCred"
+                  element={
+                    <>
+                      <VerifyCred setCredential={setCredential} credential={credential}/>
+                    </>
+                  }
+              />
+            </Routes>
+          </>
+        </BrowserRouter>
+      </React.Fragment>
   );
-}
-
+};
 export default App;

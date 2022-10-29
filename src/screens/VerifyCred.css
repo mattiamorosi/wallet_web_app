@@ -1,0 +1,13 @@
+.main_div {
+    text-align: center;
+}
+
+.verify_button {
+    color: white;
+    background-color: black;
+    align-self: center;
+    border-radius:28px;
+    display:inline-block;
+    font-size:20px;
+    padding:16px 50px;
+}
