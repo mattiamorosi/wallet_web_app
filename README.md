@@ -9,6 +9,8 @@ After that, open a terminal in the "wallet_web_app" folder and write on the term
 
 To use the application, you have to run both the Verifier (https://github.com/mattiamorosi/Verifier) and the Identity Provider (https://github.com/mattiamorosi/IdentityProvider).
 
+In the communication with the Verifier and the Identity Provider, HTTPS with self-signed certificates is used. To be able to use the wallet application, it is necessary to open a route of both of them on the browser (e.g., by clicking on https://127.0.0.1:8443/createUserVC for the Verifier and on https://127.0.0.1:8443/createIdentity for the Identity Provider) and to consent the communication.
+
 
 ## Usage
 When the app starts, it is possilbe to insert an Alias to require the DID. By pressing the "Register" button, the DID generation starts. If the alias has not been used jet, the DID will appear on the screen, otherwise a new alias must be inserted.
