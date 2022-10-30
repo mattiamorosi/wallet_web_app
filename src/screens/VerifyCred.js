@@ -12,7 +12,7 @@ const VerifyCred = ({alias, setCredential, credential}) => {
 
     async function verify() {
         const verification_result = await axios.post(
-            "http://127.0.0.1:5001/verifyVC",
+            "https://127.0.0.1:8444/verifyVC",
             {
                 headers: {
                     "Content-Type": "application/json",

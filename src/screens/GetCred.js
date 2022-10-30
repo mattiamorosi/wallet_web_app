@@ -26,7 +26,7 @@ const GetCred = ({alias, setCredential, credential}) => {
         }
         else {
             const userData = await axios.post(
-                "http://127.0.0.1:5000/createUserVC",
+                "https://127.0.0.1:8443/createUserVC",
                 {
                     headers: {
                         "Content-Type": "application/json",

@@ -24,8 +24,9 @@ const Onboarding = ({setPrevScreen, userInfo, setAlias}) => {
             alert.show('Fill all the fields!');
         }
         else {
+           
             const userData = await axios.post(
-                "http://127.0.0.1:5000/createIdentity",
+                "https://127.0.0.1:8443/createIdentity",
                 {
                     headers: {
                         "Content-Type": "application/json",
