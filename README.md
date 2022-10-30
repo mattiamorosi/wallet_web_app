@@ -1,4 +1,4 @@
-# Getting Started with wallet_web_app
+Wallet_web_app
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
