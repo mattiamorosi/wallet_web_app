@@ -1,14 +1,10 @@
 import React, {useState} from 'react';
-import {useNavigate} from 'react-router';
-import {useAlert} from "react-alert";
 import axios from "axios";
 import "./VerifyCred.css";
 
 
 const VerifyCred = ({alias, setCredential, credential}) => {
     const [result, setResult] = useState('');
-    const alert = useAlert()
-    const navigate = useNavigate();
 
     async function verify() {
         const verification_result = await axios.post(
