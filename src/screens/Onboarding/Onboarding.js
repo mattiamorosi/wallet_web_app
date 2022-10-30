@@ -53,7 +53,7 @@ const Onboarding = ({setPrevScreen, userInfo, setAlias}) => {
         <React.Fragment>
             {document===''&&verifying===false?(
                 <div className= "viewStyle">
-                <h1>Welcome!</h1>
+                <h1 className='title'>Welcome!</h1>
                 <img
                     className="tinyLogo"
                     src={logo}
@@ -74,13 +74,13 @@ const Onboarding = ({setPrevScreen, userInfo, setAlias}) => {
             )
         : verifying? (
             <div className= "viewStyle">
-                <h1>The Identity Provider is creating your DID...</h1>
-                <h3>Some seconds are needed to perform the PoW, after that time if your alias has not been used a DID will be assigned to you!</h3>
+                <h1 className='title'>The Identity Provider is creating your DID...</h1>
+                <h2 className='description'>Some seconds are needed to perform the PoW, after that time if your alias has not been used a DID will be assigned to you!</h2>
             </div>
         ):(
             <div className= "viewStyle">
-                <h1>Your DID is ready!</h1>
-                <h3>{document}</h3>
+                <h1 className='title'>Your DID is ready!</h1>
+                <h2 className='description'>{document}</h2>
                 <button className="login_button" onClick={handleClick}>Get a new VC!</button>
             </div>
         )}

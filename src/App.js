@@ -24,7 +24,8 @@ const App = () => {
                   path="/getCred"
                   element={
                     <>
-                      <GetCred alias={alias} setCredential={setCredential} credential={credential}/>
+                      <GetCred alias={alias} 
+                              setCredential={setCredential} credential={credential}/>
                     </>
                   }
               />

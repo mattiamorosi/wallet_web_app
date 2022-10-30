@@ -24,13 +24,13 @@ const VerifyCred = ({alias, setCredential, credential}) => {
     return (
         <React.Fragment>
             <div className='main_div'>
-                <h1>Verifiable credential to verify</h1>
-                <h3>{JSON.stringify(credential)}</h3>
+                <h1 className='title'>Verifiable credential to verify</h1>
+                <h3 className='VC'>{JSON.stringify(credential)}</h3>
                 {!(result==='') ? (
-                     <h2>{JSON.stringify(result).slice(1, -1)}</h2>
+                     <h2 className='verification_result'>{JSON.stringify(result).slice(1, -1)}</h2>
                 ):(
                     <>
-                        <h2>Click the bottom below to start the verification process.</h2>
+                        <h2 className='description'>Click the button below to start the verification process.</h2>
                         <button onClick={verify} className="verify_button">Verify your VC</button>
                     </>
                 )}            

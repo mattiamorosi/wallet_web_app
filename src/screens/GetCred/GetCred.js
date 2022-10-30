@@ -74,8 +74,8 @@ const GetCred = ({alias, setCredential, credential}) => {
             )
         : (
             <div className='cred_div'>
-                <h1>Your VC is ready!</h1>
-                <h3>{JSON.stringify(credential)}</h3>
+                <h1 className='title'>Your VC is ready!</h1>
+                <h3 className='VC'>{JSON.stringify(credential)}</h3>
                 <button className='verify_button' onClick={handleClick}>Verify your VC</button>
             </div>
         )}
