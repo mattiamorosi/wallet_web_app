@@ -4,7 +4,7 @@
 ## Installation
 
 To download the code, write on the terminal `git clone https://github.com/mattiamorosi/wallet_web_app.git`.
-After that, open a terminal in the "wallet_web_app" folder and write on the terminal `npm start`. This will run the app in http://localhost:3000.
+After that, open a terminal in the "wallet_web_app" folder and write on the terminal `npm start`. This will run the app in https://localhost:3000.
 
 To use the application, you have to run both the Verifier (https://github.com/mattiamorosi/Verifier) and the Identity Provider (https://github.com/mattiamorosi/IdentityProvider).
 
