@@ -3,7 +3,7 @@ import axios from "axios";
 import "./VerifyCred.css";
 
 
-const VerifyCred = ({alias, setCredential, credential}) => {
+const VerifyCred = ({credential}) => {
     const [result, setResult] = useState('');
 
     async function verify() {

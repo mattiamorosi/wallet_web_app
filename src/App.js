@@ -33,7 +33,7 @@ const App = () => {
                   path="/verifyCred"
                   element={
                     <>
-                      <VerifyCred setCredential={setCredential} credential={credential}/>
+                      <VerifyCred credential={credential}/>
                     </>
                   }
               />

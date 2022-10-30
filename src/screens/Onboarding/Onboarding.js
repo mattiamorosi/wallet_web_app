@@ -6,9 +6,9 @@ import "./Onboarding.css"
 import axios from "axios";
 
 
-const Onboarding = ({setPrevScreen, userInfo, setAlias}) => {
+const Onboarding = ({setAlias}) => {
     const [user, setUser] = useState('');
-    const [document, setDocument] = useState('');
+    const [did, setDid] = useState('');
     const [error, setError] = useState(false);
     const [verifying, setVerifying] = useState(false);
     const alert = useAlert()
@@ -20,12 +20,12 @@ const Onboarding = ({setPrevScreen, userInfo, setAlias}) => {
 
     async function handleRegistration() {
         setVerifying(true);
-        if (user === '' || user === undefined) {
+        if (user === '') {
             alert.show('Fill all the fields!');
         }
         else {
            
-            const userData = await axios.post(
+            const userDid = await axios.post(
                 "https://127.0.0.1:8443/createIdentity",
                 {
                     headers: {
@@ -37,13 +37,13 @@ const Onboarding = ({setPrevScreen, userInfo, setAlias}) => {
                 }
             );
             
-            if (userData.data==="alias_used") {
+            if (userDid.data==="alias_used") {
                 setError(() => true);
                 setVerifying(false);
             }
             else {
                setAlias(() => user);
-               setDocument(() => userData.data);
+               setDid(() => userDid.data);
                setVerifying(false);
             }
         }
@@ -51,7 +51,7 @@ const Onboarding = ({setPrevScreen, userInfo, setAlias}) => {
 
     return (
         <React.Fragment>
-            {document===''&&verifying===false?(
+            {did===''&&verifying===false?(
                 <div className= "viewStyle">
                 <h1 className='title'>Welcome!</h1>
                 <img
@@ -65,7 +65,11 @@ const Onboarding = ({setPrevScreen, userInfo, setAlias}) => {
                         className="inputField"
                     />
                 </div>
-                {error===true ? (<h2 className="error">Alias already exists, try again</h2>):(<></>)}
+                {error===true ? (
+                    <h2 className="error">Alias already exists, try again</h2>)
+                    :
+                    (<></>)
+                }
                 <button
                     onClick={handleRegistration}
                     className="login_button"
@@ -75,12 +79,14 @@ const Onboarding = ({setPrevScreen, userInfo, setAlias}) => {
         : verifying? (
             <div className= "viewStyle">
                 <h1 className='title'>The Identity Provider is creating your DID...</h1>
-                <h2 className='description'>Some seconds are needed to perform the PoW, after that time if your alias has not been used a DID will be assigned to you!</h2>
+                <h2 className='description'>
+                    Some seconds are needed to perform the PoW, after that time if your alias has not been used a DID will be assigned to you!
+                </h2>
             </div>
         ):(
             <div className= "viewStyle">
                 <h1 className='title'>Your DID is ready!</h1>
-                <h2 className='description'>{document}</h2>
+                <h2 className='description'>{did}</h2>
                 <button className="login_button" onClick={handleClick}>Get a new VC!</button>
             </div>
         )}
