@@ -9,11 +9,23 @@ const GetCred = ({alias, setCredential, credential}) => {
     const [name, setName] = useState('');
     const [surname, setSurname] = useState('');
     const [university, setUniversity] = useState('');
+    const [result, setResult] = useState('');
     const alert = useAlert()
     const navigate = useNavigate();
 
-    function handleClick() {
-        navigate("/verifyCred");
+    async function verify() {
+        const verification_result = await axios.post(
+            "https://127.0.0.1:8444/verifyVC",
+            {
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                data: {
+                    vc:credential
+                }
+            }
+        );
+        setResult(() => verification_result.data)
     }
 
     async function handleVCgeneration() {
@@ -76,7 +88,14 @@ const GetCred = ({alias, setCredential, credential}) => {
                 <div className='cred_div'>
                     <h1 className='title'>Your VC is ready!</h1>
                     <h3 className='VC'>{JSON.stringify(credential)}</h3>
-                    <button className='verify_button' onClick={handleClick}>Verify your VC</button>
+                    {!(result==='') ? (
+                     <h2 className='verification_result'>{JSON.stringify(result).slice(1, -1)}</h2>
+                ):(
+                    <>
+                        <h2 className='description'>Click the button below to start the verification process.</h2>
+                        <button onClick={verify} className="verify_button">Verify your VC</button>
+                    </>
+                )}     
                 </div>
             )}
                 

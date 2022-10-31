@@ -19,12 +19,11 @@ const Onboarding = ({setAlias}) => {
     }
 
     async function handleRegistration() {
-        setVerifying(true);
         if (user === '') {
             alert.show('Fill all the fields!');
         }
         else {
-           
+            setVerifying(true);           
             const userDid = await axios.post(
                 "https://127.0.0.1:8443/createIdentity",
                 {

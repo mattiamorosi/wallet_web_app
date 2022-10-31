@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Onboarding from './screens/Onboarding/Onboarding';
 import GetCred from './screens/GetCred/GetCred';
-import VerifyCred from './screens/VerifyCred/VerifyCred';
 
 const App = () => {
   const [alias, setAlias] = useState();
@@ -26,14 +25,6 @@ const App = () => {
                     <>
                       <GetCred alias={alias} 
                               setCredential={setCredential} credential={credential}/>
-                    </>
-                  }
-              />
-              <Route
-                  path="/verifyCred"
-                  element={
-                    <>
-                      <VerifyCred credential={credential}/>
                     </>
                   }
               />
