@@ -16,7 +16,3 @@ When the app starts, it is possilbe to insert an Alias to require the DID. By pr
 Once the DID is created, it is possible to request for a credential by pressing the "Get a new VC!" button. In the page that will be loaded, the fieds of the credential to request must be inserted, and by pressing on the "Get VC" button, the Verifiable Credential will be created and displayed.
 Then, it is possible to verify if the credential has been revoked by clicking on the "Verify your VC" button. After this, the result of the verification will be displayed on the screen.
 
-
-
-### `npm test`
-
