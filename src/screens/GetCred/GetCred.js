@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import {useNavigate} from 'react-router';
 import {useAlert} from "react-alert";
 import axios from "axios";
 import "./GetCred.css";
@@ -11,7 +10,6 @@ const GetCred = ({alias, setCredential, credential}) => {
     const [university, setUniversity] = useState('');
     const [result, setResult] = useState('');
     const alert = useAlert()
-    const navigate = useNavigate();
 
     async function verify() {
         const verification_result = await axios.post(
@@ -59,8 +57,8 @@ const GetCred = ({alias, setCredential, credential}) => {
         <React.Fragment>
             {credential===''?(
                 <div className= "viewStyle">
-                    <h1>Get your verifiable credential!</h1>
-                    <h2>Insert your data, they will be used to generate your credential.</h2>
+                    <h1 className='title'>Get your verifiable credential!</h1>
+                    <h2 className='description'>Insert your data, they will be used to generate your credential.</h2>
                     <div className='inputContainer'>
                         <input
                             onChange={(e) => setName(e.target.value)}
@@ -89,13 +87,13 @@ const GetCred = ({alias, setCredential, credential}) => {
                     <h1 className='title'>Your VC is ready!</h1>
                     <h3 className='VC'>{JSON.stringify(credential)}</h3>
                     {!(result==='') ? (
-                     <h2 className='verification_result'>{JSON.stringify(result).slice(1, -1)}</h2>
-                ):(
-                    <>
-                        <h2 className='description'>Click the button below to start the verification process.</h2>
-                        <button onClick={verify} className="verify_button">Verify your VC</button>
-                    </>
-                )}     
+                        <h2 className='title'>{JSON.stringify(result).slice(1, -1)}</h2>
+                    ):(
+                        <>
+                            <h2 className='description'>Click the button below to start the verification process.</h2>
+                            <button onClick={verify} className="verify_button">Verify your VC</button>
+                        </>
+                    )}     
                 </div>
             )}
                 
